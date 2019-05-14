@@ -20,20 +20,20 @@ render(){
 }
 }
 const styles = StyleSheet.create({
-    note={
-        position='relative',
+    note:{
+        position:'relative',
         padding:20,
         paddingRight:100,
         borderBottomWidth:2,
         borderBottomColor:'#ededed'
     },
-    noteText={
-        paddingLeft=20,
-        borderLeftWidth=10,
-        borderLeftColor='#E91E63',
+    noteText:{
+        paddingLeft:20,
+        borderLeftWidth:10,
+        borderLeftColor:'#E91E63',
     },
-    noteDelete={
-        position='relative',
+    noteDelete:{
+        position:'relative',
         justifyContent:'center',
         alignItems:'center',
         backgroundColor:'#2980b9',
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         bottom:10,
         right:10
     },
-    noteDeleteText={
+    noteDeleteText:{
         color:'white'
     }
 })

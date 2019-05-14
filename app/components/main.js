@@ -25,7 +25,7 @@ export default class Main extends React.Component{
                    </Text>
                </View>
                <ScrollView style={styles.scrollContainer}>
-
+                    {notes}
                </ScrollView>
 
                <View style={styles.footer}>
@@ -46,7 +46,16 @@ export default class Main extends React.Component{
         )
     }
     addNote(){
-        alert('test');
+        if(this.state.noteText){
+            var D = new Date();
+            this.state.noteArray.push({
+                'date': D.getFullYear() +
+                "/" + (D.getMonth() + 1) +
+                "/" + D.getDate(),
+            });
+            this.setState({noteArray: this.state.noteArray})
+            this.setState({ noteText: ''});
+        }         
     }
 }
 
