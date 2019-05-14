@@ -14,7 +14,7 @@ export default class Main extends React.Component{
     render(){
         let notes = this.state.noteArray.map((val, key)=>{
             return <Note key={key} keyval={key} val={val}
-                    deleteMethod={ ()=>{this.deleteNote(key)}}
+                    deleteMethod={ (key)=>{this.deleteNote(key)}}
             />
         })
         return(
@@ -31,7 +31,7 @@ export default class Main extends React.Component{
                <View style={styles.footer}>
                     <TextInput 
                         style={styles.textInput}
-                        onChange={(noteText)=>{this.setState(noteText)}}
+                        onChangeText={(noteText)=>{this.setState({noteText})}}
                         value={this.state.noteText}
                         placeholder='>note'
                         placeholderTextColor='white'
@@ -47,15 +47,20 @@ export default class Main extends React.Component{
     }
     addNote(){
         if(this.state.noteText){
-            var D = new Date();
+            var d = new Date();
             this.state.noteArray.push({
-                'date': D.getFullYear() +
-                "/" + (D.getMonth() + 1) +
-                "/" + D.getDate(),
+                'date': d.getFullYear() +
+                "/" + (d.getMonth() + 1) +
+                "/" + d.getDate(),
+                'note' : this.state.noteText
             });
             this.setState({noteArray: this.state.noteArray})
             this.setState({ noteText: ''});
         }         
+    }
+    deleteNote(key) {
+        this.state.noteArray.splice(key, 1);
+        this.setState({ noteArray : this.state.noteArray})
     }
 }
 
